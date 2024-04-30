@@ -1,33 +1,38 @@
 <?php
+session_start();
+
 // Connexion à la base de données
-$servername = "localhost";
-$username = "votre_nom_utilisateur_mysql";
-$password = "votre_mot_de_passe_mysql";
-$dbname = "data_light_life";
+$db_host = 'localhost';
+$db_username = 'mkl';
+$db_password = 'mkl';
+$db_name = 'data_light_life';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($db_host, $db_username, $db_password, $db_name);
 
-// Vérification de la connexion
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Erreur de connexion à la base de données : " . mysqli_connect_error());
 }
 
 // Récupération des données du formulaire
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-// Requête SQL pour vérifier l'utilisateur dans la base de données
-$sql = "SELECT id FROM users WHERE username='$username' AND password='$password'";
-$result = $conn->query($sql);
+// Requête préparée pour vérifier les informations d'identification
+$query = "SELECT id FROM users WHERE username = ? AND password = ?";
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
-// Vérification si l'utilisateur existe dans la base de données
-if ($result->num_rows > 0) {
-    // Redirection vers index.html après une connexion réussie
-    echo "<script>window.location.href='/Light-life/html/index.html';</script>";
+if (mysqli_num_rows($result) == 1) {
+    // L'utilisateur est authentifié avec succès
+    $_SESSION['username'] = $username;
+    header("Location: /Light-life/index.html"); // Redirigez vers index.html après l'authentification
+    exit();
 } else {
-    echo "Invalid username or password.";
+    // Échec de l'authentification
+    header("/"); // Redirigez vers la page de connexion avec un message d'erreur
 }
 
-// Fermeture de la connexion à la base de données
-$conn->close();
+mysqli_close($conn);
 ?>

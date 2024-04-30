@@ -49,10 +49,16 @@ body {
     font-family: var(--font-family-title);
     font-size: var(--font-size-medium);
 }
-.create-account {
-    text-decoration: none;
-}
 .login-container input[type="text"], .login-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.login-container input[type="Email"], .login-container input[type="password"] {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
@@ -94,4 +100,14 @@ body {
 
 .login-container input[type="create-account"]:hover {
     background-color: var(--color-vert);
+}
+
+.already {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--color-white);
+}
+
+.login {
+    color: var(--color-flash);
 }
