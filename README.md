@@ -29,3 +29,6 @@ mysql -u root -p
 
 SHOW databases;
 
+**Démarrer server nodejs**
+
+node server.js

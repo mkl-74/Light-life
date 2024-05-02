@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="/Light-life/static/style_create_account.css">
+</head>
+<body>
+    <div class="login-container">
+        <img src="/Light-life/images/Light Life_txt.png" alt="txt-Light-Life" height="100px">
+        <img class="plume" src="/Light-life/images/Plume.png" alt="Logo-Light-Life" height="120" width="auto">
+        <h2>-- Create Account --</h2>
+
+        <form action="/Light-life/static/create_account.php" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <input type="submit" value="Create Account">
+        </form>
+
+        <p class="already">Already have an account? <a class="login" href="/Light-life/static/login.html">Login here</a></p>
+    </div>
+</body>
+</html>
