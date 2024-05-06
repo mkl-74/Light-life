@@ -5,11 +5,11 @@ const port = 3000;
 
 
 // Définir le dossier des fichiers statiques (HTML, CSS, JavaScript, etc.)
-app.use(express.static(path.join(__dirname, 'Light-life', 'static')));
+app.use(express.static(path.join(__dirname, 'static')));
 
 // Route par défaut - Rediriger vers la page de login
 app.get('/', (req, res) => {
-    res.redirect('login');
+    res.redirect('/login');
 });
 
 // Route pour la page de login
