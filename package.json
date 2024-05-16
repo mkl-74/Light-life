@@ -19,6 +19,12 @@
   },
   "homepage": "https://github.com/mkl-74/Light-life#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "@babel/cli": "^7.24.5",
+    "@babel/core": "^7.24.5",
+    "@babel/preset-react": "^7.24.1",
+    "express": "^4.19.2",
+    "lru-cache": "^6.0.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.7"
   }
 }
