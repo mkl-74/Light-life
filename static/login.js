@@ -1,7 +1,7 @@
 const express = require('express');
 const mysql = require('mysql2');
 const session = require('express-session');
-
+const path = require('path');
 const app = express();
 
 // Configuration de la connexion à la base de données MySQL

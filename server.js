@@ -25,11 +25,11 @@ db.connect((err) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Définir le dossier des fichiers statiques (HTML, CSS, JavaScript, etc.)
-app.use(express.static(path.join(__dirname, 'Light-life', 'static')));
+app.use(express.static(path.join(__dirname, 'Light-life','static')));
 
 // Route par défaut - Rediriger vers la page de login
 app.get('/', (req, res) => {
-  res.redirect('login');
+  res.redirect('./login');
 });
 
 app.post('/create-account', (req, res) => {
@@ -55,12 +55,12 @@ app.post('/create-account', (req, res) => {
 
 // Route pour la page de login
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'static', 'login.html'));
+  res.sendFile(path.join(__dirname, 'static','login.html'));
 });
 
 // Route pour la page d'administration
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'static', 'admin.html'));
+  res.sendFile(path.join(__dirname, 'static','admin.html'));
 });
 
 // Démarrer le serveur
