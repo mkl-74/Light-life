@@ -55,12 +55,12 @@ app.post('/create-account', (req, res) => {
 
 // Route pour la page de login
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Light-life','static','login.html'));
+  res.sendFile(path.join(__dirname, 'static','login.html'));
 });
 
 // Route pour la page d'administration
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Light-life','static','admin.html'));
+  res.sendFile(path.join(__dirname, 'static','admin.html'));
 });
 
 // Démarrer le serveur
