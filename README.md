@@ -32,3 +32,5 @@ SHOW databases;
 **Démarrer server nodejs**
 
 node server.js
+
+npx eslint --fix [nom du fichier]

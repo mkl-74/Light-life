@@ -25,11 +25,11 @@ db.connect((err) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Définir le dossier des fichiers statiques (HTML, CSS, JavaScript, etc.)
-app.use(express.static(path.join(__dirname, 'Light-life','static')));
+app.use(express.static('public', {index: 'login.html'}));
 
 // Route par défaut - Rediriger vers la page de login
 app.get('/', (req, res) => {
-  res.redirect('/login');
+  res.redirect('/static/login.html');
 });
 
 app.post('/create-account', (req, res) => {
