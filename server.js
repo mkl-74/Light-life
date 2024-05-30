@@ -25,7 +25,7 @@ db.connect((err) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Définir le dossier des fichiers statiques (HTML, CSS, JavaScript, etc.)
-app.use(express.static('public', {index: 'login.html'}));
+app.use(express.static('static', {index: 'login.html'}));
 
 // Route par défaut - Rediriger vers la page de login
 app.get('/', (req, res) => {
