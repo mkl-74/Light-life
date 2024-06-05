@@ -1,0 +1,209 @@
+/* Réinitialisation des styles */
+:root {
+  --color-black: black;
+  --color-white: white;
+  --color-cadet: rgb(119, 158, 151);
+  --color-vert: rgb(80, 117, 110);
+  --color-dark-grey: rgb(64, 64, 64);
+  --color-red: rgb(217, 149, 149);
+  --color-flash: orange;
+  --font-family-base: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-title: 'Avenir Next Medium';
+  --font-size-small: 1.2rem;
+  --font-size-medium: 2rem;
+  --font-size-large: 3.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#logo {
+  width: 500px;
+}
+
+/* Styles généraux */
+body {
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  color: var(--color-cadet);
+  background-color: var(--color-vert);
+}
+
+header {
+  background-color: var(--color-cadet);
+  color: var(--color-white);
+  padding: 1rem;
+}
+
+nav ul {
+  background-color: var(--color-vert);
+  padding: 1rem;
+  position: relative;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav a {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--color-flash);
+}
+
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background-color: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#impression { /*picto d'impression*/
+    position: fixed; /* Position fixe par rapport à la fenêtre du navigateur */
+    top: 80px; /* Réglez la distance du haut si nécessaire */
+    right: 70px; /* Alignez le pictogramme à droite de la page */
+    background-color: var(--color-flash);
+    color: var(--color-white);
+    border: none;
+    padding: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+  background-color: var(--color-vert);
+  color: var(--color-white);
+  text-align: center;
+  padding: 1rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: var(--font-family-title);
+  color: var(--color-black);
+}
+
+.triple_section {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: var(--color-cadet);
+  color: var(--color-white);
+}
+
+.container_base, .container_frais, .container_entretien {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Permet l'alignement vertical des éléments */
+  align-items: center;
+}
+
+#shoppingForm_base, #shoppingForm_frais, #shoppingForm_entretien {
+  width: 100%;
+  max-width: 300px;
+  margin: 1rem 0;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--color-flash);
+  text-align: center;
+}
+
+#ingredient_base, #ingredient_frais, #ingredient_entretien {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.button { /* Bouton d'ajout */
+  display: block;
+  width: 100%;
+  padding: 0.3rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: var(--color-flash);
+  border: none;
+  border-radius: 5px;
+  color: var(--color-white);
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-dark-grey);
+}
+
+#shoppingList_base, #shoppingList_frais, #shoppingList_entretien {
+  list-style-type: none;
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+}
+
+#shoppingList_base li, #shoppingList_frais li, #shoppingList_entretien li {
+  padding: 0.5rem;
+  padding-bottom: 10px;
+  background-color: var(--color-cadet);
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: var(--color-flash);
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 0;
+}
+
+.delete-button:hover {
+  color: var(--color-red);
+}
+
+/* Style pour le conteneur des éléments de la liste */
+.list-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Style pour le bouton de suppression */
+.delete-button {
+  background: none;
+  border: none;
+  color: var(--color-flash);
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 0;
+}
+
+.delete-button:hover {
+  color: var(--color-red);
+}

@@ -1,0 +1,19 @@
+    const weeklyTasks = [
+        { task: 'Mettre la table', minAge: 6 },
+        { task: 'Débarrasser la table', minAge: 12 },
+        { task: 'Sortir le container poubelle', minAge: 10 },
+        { task: 'Rentrer le container poubelle', minAge: 12 },
+        { task: 'Préparer repas', minAge: 17 },
+        { task: 'Aide repas', minAge: 8 },
+        { task: 'Aspirateur étage', minAge: 10 },
+        { task: 'Aspirateur RDC', minAge: 10 },
+        { task: 'Serpillère étage', minAge: 10 },
+        { task: 'Serpillère RDC', minAge: 10 }
+    ];
+
+    const dailyTasks = [
+        { task: 'Faire son lit', minAge: 7 },
+        { task: 'Ranger sa chambre', minAge: 7 },
+        { task: 'Plier son linge propre', minAge: 7 },
+        { task: 'Vider lave vaiselle', minAge: 7 }
+    ];

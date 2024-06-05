@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Light Life</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html">
+        <img src="./images/logo_Light Life.png" alt="Logo de Light Life" id="logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="planning.html">Planning</a></li>
+        <li><a href="Shopping.html">Shopping</a></li>
+        <li><a href="repas.html">Repas</a></li>
+        <li><a href="todolist.html">To-do</a></li>
+        <li><a href="budget.html">Budget</a></li>
+        <li><a href="calendrier.html">Calendrier</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Tableau Hebdomadaire -->
+    <h1 class="title"> -- Répartition des Tâches Hebdomadaires -- </h1>
+    <button class="accordion">Afficher/Masquer le Tableau Hebdomadaire</button>
+    <div class="panel">
+        <table id="weeklyTaskTable">
+            <thead>
+              <tr>
+                <th>Tâche</th>
+                <th>Lundi</th>
+                <th>Mardi</th>
+                <th>Mercredi</th>
+                <th>Jeudi</th>
+                <th>Vendredi</th>
+                <th>Samedi</th>
+                <th>Dimanche</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- Les lignes de tâches seront ajoutées ici dynamiquement -->
+            </tbody>
+        </table>
+        <button id="addWeeklyTask">Ajouter une Tâche Hebdomadaire</button>
+        <button id="resetWeeklyTasks">RAZ Tâches Hebdomadaires</button>
+        <button id="saveWeeklyTasks">Sauvegarder les Tâches Hebdomadaires</button>
+        <ul id="weeklyTaskList" class="task-list">
+            <!-- Les tâches hebdomadaires seront affichées ici -->
+        </ul>
+    </div>
+
+    <!-- Tableau Quotidien -->
+    <h1 class="title"> -- Répartition des Tâches Quotidiennes -- </h1>
+    <button class="accordion">Afficher/Masquer le Tableau Quotidien</button>
+    <div class="panel">
+        <table id="dailyTaskTable">
+            <thead>
+              <tr>
+                <th>Tâche</th>
+                <th>Lundi</th>
+                <th>Mardi</th>
+                <th>Mercredi</th>
+                <th>Jeudi</th>
+                <th>Vendredi</th>
+                <th>Samedi</th>
+                <th>Dimanche</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- Les lignes de tâches seront ajoutées ici dynamiquement -->
+            </tbody>
+        </table>
+        <button id="addDailyTask">Ajouter une Tâche Quotidienne</button>
+        <button id="resetDailyTasks">RAZ Tâches Quotidiennes</button>
+        <button id="saveDailyTasks">Sauvegarder les Tâches Quotidiennes</button>
+        <ul id="dailyTaskList" class="task-list">
+            <!-- Les tâches quotidiennes seront affichées ici -->
+        </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Light Life. Tous droits réservés.</p>
+  </footer>
+  
+  <script src="./js/script_planning_Hebdomadaire.js"></script>
+</body>
+</html>

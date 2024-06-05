@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Light Life - Shopping</title>
+  <link rel="stylesheet" href="./css/style_shopping.css">
+  <link rel="stylesheet" href="print.css" type="text/css" media="print" />
+</head>
+<body>
+  <header>
+    <a href="index.html">
+        <img src="./images/logo_Light Life.png" alt="Logo de Light Life" id="logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="planning.html">Planning</a></li>
+        <li><a href="shopping.html">Shopping</a></li>
+        <li><a href="repas.html">Repas</a></li>
+        <li><a href="todolist.html">To-do</a></li>
+        <li><a href="budget.html">Budget</a></li>
+        <li><a href="calendrier.html">Calendrier</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form> <!--picto impression-->
+      <button id="impression" name="impression" type="button" onclick="imprimer_page()">
+          <img src="./images/Print.png" alt="Imprimer" class="icon" height="40px">
+      </button>
+  </form>
+
+    <section class="triple_section">
+      <div class="container_base">
+        <h1>-- Liste de Base --</h1>
+        <form id="baseForm">
+          <label class="label" for="baseIngredient">Ajouter un ingrédient :</label>
+          <input type="text" id="baseIngredient" name="ingredient" required>
+          <button class="button" type="submit">Ajouter</button>
+        </form>
+        <ul id="baseList">
+          <!-- Les ingrédients ajoutés apparaîtront ici -->
+        </ul>
+      </div>
+
+      <div class="container_frais">
+        <h1>-- Liste de Frais --</h1>
+        <form id="fraisForm">
+          <label class="label" for="fraisIngredient">Ajouter un ingrédient :</label>
+          <input type="text" id="fraisIngredient" name="ingredient" required>
+          <button class="button" type="submit">Ajouter</button>
+        </form>
+        <ul id="fraisList">
+          <!-- Les ingrédients ajoutés apparaîtront ici -->
+        </ul>
+      </div>
+
+      <div class="container_entretien">
+        <h1>-- Liste d'Entretien --</h1>
+        <form id="entretienForm">
+          <label class="label" for="entretienIngredient">Ajouter un ingrédient :</label>
+          <input type="text" id="entretienIngredient" name="ingredient" required>
+          <button class="button" type="submit">Ajouter</button>
+        </form>
+        <ul id="entretienList">
+          <!-- Les ingrédients ajoutés apparaîtront ici -->
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Light Life. Tous droits réservés.</p>
+  </footer>
+
+  <!--Appel script shopping-->
+  <script src="./js/shopping.js"></script>
+  
+  <!--Impression de la page-->
+  <script type="text/javascript">
+    function imprimer_page(){
+      window.print();
+    }
+    </script>
+</body>
+</html>

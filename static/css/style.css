@@ -1,0 +1,311 @@
+/* Réinitialisation des styles */
+:root {
+  --color-black: black;
+  --color-white: white;
+  --color-cadet: rgb(119, 158, 151);
+  --color-vert: rgb(80, 117, 110);
+  --color-dark-grey: rgb(64, 64, 64);
+  --color-red: rgb(217, 149, 149);
+  --color-flash: orange;
+  --font-family-base: Avenir Next, Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-family-title: Avenir Next Medium;
+  --font-size-small: 1.2rem;
+  --font-size-medium: 2rem;
+  --font-size-large: 3.5rem;
+  --header-logo-position: absolute;
+  --header-padding: 1rem 0 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#logo {
+  width: 500px;
+}
+
+/* Styles généraux */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--color-cadet);
+  background-color: var(--color-vert);
+}
+
+header {
+  background-color: var(--color-cadet);
+  color: #ffffff;
+  padding: 1rem;
+}
+
+nav ul {
+  background-color: var(--color-vert);
+  padding: 1rem;
+  position: relative;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--color-flash);
+}
+
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.accordion {
+  background-color: var(--color-flash);
+  color: white;
+  cursor: pointer;
+  padding: 6px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+  font-size: 18px;
+  transition: 0.4s;
+  margin-bottom: 40px;
+}
+
+.title {
+  color: var(--color-dark-grey);
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+  text-decoration: none;
+  font-family: var(--font-family-title);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  display: block;
+  position: relative;
+}
+
+.panel {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-dark-grey);
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: var(--font-family-title);
+  font-weight: bold;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: var(--color-cadet);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#taskTable {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td, th, tr {
+  padding: 12px;
+  text-align: center;
+  border: 2px solid #ddd;
+}
+
+.deleteTask {
+  color: var(--color-flash);
+  padding: 5px;
+  border-radius: 15px;
+  background-color: var(--color-cadet);
+  cursor: pointer;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#saveTask {
+  color: var(--color-flash);
+  padding: 5px;
+  border-radius: 3px;
+  background-color: var(--color-vert);
+  cursor: pointer;
+  transition: color 0.5s ease;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#addDailyTask, #addWeeklyTask, #resetDailyTasks, #resetWeeklyTasks, #saveDailyTasks, #saveWeeklyTasks {
+  color: var(--color-flash);
+  padding: 5px;
+  border-style: none;
+  background-color: var(--color-cadet);
+  cursor: pointer;
+  transition: color 0.5s ease;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-color: var(--color-cadet);
+  width: 100%;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #333;
+}
+
+section {
+  background-color: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--color-vert);
+}
+
+footer {
+  background-color: var(--color-vert);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Styles spécifiques */
+
+.button,#saveDailyTasks, #saveWeeklyTasks, #resetDailyTasks, #resetWeeklyTasks, #resetdailytasks, #addWeeklyTask, #addDailyTask {
+  color: var(--color-flash);
+  background-color: var(--color-flash);
+  margin-bottom: 10px;
+  width: 50%;
+  color: var(--color-dark-grey);
+}
+
+#tasks ul {
+  list-style-type: none;
+}
+
+#dailyTaskList li {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width:50%;
+  list-style-type: none;
+  background-color: var(--color-red);
+}
+
+#weeklyTaskList li {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width:50%;
+  list-style-type: none;
+  background-color: var(--color-red);
+}
+
+#tasks li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+#tasks li input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+#shopping ul {
+  list-style-type: none;
+  columns: 2;
+}
+
+#meals ul {
+  list-style-type: none;
+}
+
+#meals li {
+  margin-bottom: 0.5rem;
+}
+
+#todo ul {
+  list-style-type: none;
+}
+
+#todo li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+#todo li input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+#payments ul {
+  list-style-type: none;
+}
+
+#payments li {
+  margin-bottom: 0.5rem;
+}
+
+#payments li a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#payments li a:hover {
+  color: #666;
+}
+
+#calendar {
+  position: relative;
+  padding-bottom: 75%; /* Ratio 4:3 */
+  height: 0;
+  overflow: hidden;
+}
+
+#calendar iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#budget table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#budget th, #budget td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom:
+}

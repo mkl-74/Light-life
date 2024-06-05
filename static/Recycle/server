@@ -1,0 +1,126 @@
+const express = require('express');
+const path = require('path');
+const mysql = require('mysql2');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const bcrypt = require('bcrypt');
+const app = express();
+const port = 3000;
+
+// Configuration de la connexion à la base de données MySQL
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'mkl',
+  password: 'mkl',
+  database: 'data_light_life'
+});
+
+// Connexion à la base de données
+db.connect((err) => {
+  if (err) {
+    console.error('Erreur de connexion à la base de données : ' + err.stack);
+    return;
+  }
+  console.log('Connecté à la base de données MySQL');
+
+  // Vérifier et créer la table shopping_list si elle n'existe pas
+  const checkTableQuery = `
+    SELECT COUNT(*)
+    AS table_exists
+    FROM information_schema.tables 
+    WHERE table_schema = 'data_light_life' 
+    AND table_name = 'shopping_list';
+  `;
+
+  db.query(checkTableQuery, (err, results) => {
+    if (err) throw err;
+
+    if (results[0].table_exists === 0) {
+      const createTableQuery = `
+        CREATE TABLE shopping_list (
+          id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+          ingredient TEXT NOT NULL
+        );
+      `;
+      db.query(createTableQuery, (err) => {
+        if (err) throw err;
+        console.log('Table shopping_list créée');
+      });
+    } else {
+      console.log('Table shopping_list existe déjà');
+    }
+  });
+});
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Configuration de la session
+app.use(session({
+  secret: 'votre_secret_de_session',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Définir le dossier des fichiers statiques (HTML, CSS, JavaScript, etc.)
+app.use(express.static('static', {index: 'login.html'}));
+
+// Routes
+app.use('/create-account', require('./routes/create_account'));
+app.use('/login', require('./routes/login'));
+
+// Route par défaut - Rediriger vers la page de login
+app.get('/', (req, res) => {
+  res.redirect('/static/login.html');
+});
+
+// Route pour sauvegarder les tâches
+app.post('/save-tasks', (req, res) => {
+    const tasks = req.body.tasks;
+    const today = new Date();
+    const expirationDate = new Date();
+    expirationDate.setDate(today.getDate() + 7);
+
+    tasks.forEach(task => {
+        const { member_name, age, task_name, date } = task;
+        const sql = 'INSERT INTO tasks (member_name, age, task, date, expiration_date) VALUES (?, ?, ?, ?, ?)';
+        db.query(sql, [member_name, age, task_name, date, expirationDate], (err, result) => {
+            if (err) throw err;
+        });
+    });
+
+    res.send('Tasks saved successfully!');
+});
+
+// Route pour sauvegarder la liste de courses
+app.post('/save-shopping-list', (req, res) => {
+    const ingredients = req.body.ingredients;
+
+    // Supprimer les anciennes entrées
+    db.query('DELETE FROM shopping_list', (err) => {
+        if (err) throw err;
+
+        // Insérer les nouvelles entrées
+        const sql = 'INSERT INTO shopping_list (ingredient) VALUES ?';
+        const values = ingredients.map(ingredient => [ingredient]);
+        db.query(sql, [values], (err) => {
+            if (err) throw err;
+            res.send('Shopping list saved successfully!');
+        });
+    });
+});
+
+// Route pour charger la liste de courses
+app.get('/load-shopping-list', (req, res) => {
+    const sql = 'SELECT ingredient FROM shopping_list';
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        const ingredients = results.map(row => row.ingredient);
+        res.json({ ingredients });
+    });
+});
+
+// Démarrer le serveur
+app.listen(port, () => {
+  console.log(`Server listening at http://localhost:${port}`);
+});
